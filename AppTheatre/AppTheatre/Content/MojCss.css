@@ -1,0 +1,77 @@
+﻿
+h1 {
+    word-spacing: inherit;
+    text-align: center;
+    color: white;
+}
+html {
+    font-family: 'Lucida Sans Unicode';
+}
+.container {
+    font-family: 'Lucida Sans Unicode';
+    word-spacing: inherit;
+    text-align: center;
+    color: black;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.bg {
+    background-image: url("hand.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.donja {
+    position: fixed;
+    bottom: 0;
+    background: rgb(0, 0, 0); /* Fallback color */
+    background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+    color: #f1f1f1;
+    width: 100%;
+}
+
+    .donja > .column > .content > img {
+        width: 250px;
+        height: 200px;
+    }
+
+    .donja, .donja > .column {
+        padding: 10px;
+    }
+
+/* Create four equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 33%;
+}
+
+/* Content */
+.content {
+    padding: 10px;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 900px) {
+    .column {
+        width: 50%;
+    }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
+/*#table{
+    margin:100px;
+}*/
+
+
+

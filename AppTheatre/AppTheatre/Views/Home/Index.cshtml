@@ -1,0 +1,132 @@
+﻿@section Scripts {
+    @Scripts.Render("~/Scripts/Skripta.js")
+    @Styles.Render("~/Content/MojCss.css")
+}
+@* ++++++++++++++++++++++++++++++++++++PRIJAVA +++++++++++++++++++++++++++++++++*@
+<nav class="navbar navbar-expand-md navbar-default" id="zaglavlje" style="display:none">
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Pretraga</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Editovanje</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Dodavanje</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Predstave</a>
+            </li>
+        </ul>
+        <p id="infoDiv"></p>&nbsp
+        <div style="display:none" id="odjava" float="right">
+            <button class="btn btn-md btn-light" id="odjavise">Odjava</button>
+        </div>
+    </div>
+</nav>
+      <div id="start">
+        <div class="row">
+            <div class="col-sm-9" id="pozdrav">
+                <h1 align="right">Ljubitelji pozorista, Dobrodosli</h1>
+            </div>
+            <div class="col-sm-3">
+                <p id="info" style="font-size:larger; color:black"></p>
+                <div id="levoStart" align="center">
+                    <div style="display:block" id="log">
+                        <button class="btn btn-lg btn-default" id="btnLogin">Prijava</button>
+                    </div><br />
+                    <div style="display:block" id="reg">
+                        <button class="btn btn-lg btn-default" id="btnRegister">Registracija</button>
+                    </div><br />
+                </div>
+                <div style="display:none" id="prijava">
+                    <form method="post" action="post/">
+                        <div class="form-group">
+                            <label>Korisnicko ime:</label>
+                            <input class="form-control" type="text" placeholder="Unesite svoju e-mail adresu" id="priEmail" />
+                        </div>
+                        <div class="form-group">
+                            <label>Lozinka:</label>
+                            <input class="form-control" type="password" placeholder="Unesite svoju lozinku" id="priLoz" />
+                        </div>
+                        <div hidden>
+                            <button type="submit" class="btn btn-md" id="skrivenaPrijava">Sakriveni submit</button>
+                        </div>
+                    </form>
+                    <div>
+                        <button class="btn btn-lg" id="prijavaDugme">Prijava</button>
+                        <button class="btn btn-lg" id="odustajanjePrijava">Odustani</button>
+                    </div>
+                </div>
+                @************************************************************************************************************/*@
+                <div style="display:none" id="registracija">
+                    <form method="post" action="post/">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input class="form-control" type="text" placeholder="Unesite svoju e-mail adresu" id="regEmail" autofocus />
+                        </div>
+                        <div class="form-group">
+                            <label>Lozinka</label>
+                            <input class="form-control" type="password" placeholder="Unesite lozinku" id="regLoz" />
+                        </div>
+                        <div class="form-group">
+                            <label>Potvrdi Lozinku</label>
+                            <input class="form-control" type="password" placeholder="Potvrdite unetu lozinku" id="regLoz2" />
+                        </div>
+                        <div hidden>
+                            <button type="submit" class="btn btn-md" id="skrivenaRegistracija">Sakriveni submit</button>
+                        </div>
+                    </form>
+                    <div class="form-group">
+                        <button class="btn btn-lg btn-default" id="registrovanjeDugme">Registruj se</button>
+                        <button class="btn btn-lg btn-default" id="odustajanjeRegistracija">Odustani</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="donja">
+            <div class="column">
+                <div class="content" id="noviSad">
+                    <h3 align="center">Novi Sad</h3>
+                    <img src="~/Content/novisad.jpg" alt="Novi Sad" style="width:90%">
+                </div>
+            </div>
+            <div class="column">
+                <div class="content" id="beograd">
+                    <h3 align="center">Beograd</h3>
+                    <img src="~/Content/beograd1.jpg" alt="Beograd" style="width:90%">
+                </div>
+            </div>
+            <div class="column">
+                <div class="content" id="sombor">
+                    <h3 align="center">Sombor</h3>
+                    <img src="~/Content/sombor.jpg" alt="Sombor" style="width:90%">
+                </div>
+            </div>
+        </div>
+      </div>
+
+    <div id="table" class="col-sm-9" style="display:none">
+        <table class="table-bordered table-hover table-active">
+            <thead>
+                <tr>
+                    <th class="text-center">Naziv</th>
+                    <th class="text-center">Ime i prezime upravnika</th>
+                    <th class="text-center">Godina osnivanja</th>
+                    <th class="text-center">Grad</th>
+                    <th class="text-center">Adresa</th>
+                    <th class="text-center">Telefon</th>
+                    <th class="text-center">Mail</th>
+                    <th class="text-center" id="kolDelete"><span class="glyphicon glyphicon-trash btn-md"></span>&nbsp  Delete</th>
+                    <th class="text-center" id="kolEdit"><span class="glyphicon glyphicon-edit btn-md"></span>&nbsp  Edit</th>
+                </tr>
+            </thead>
+            <tbody class="text-center" id="tablebody"></tbody>
+        </table>
+    </div>

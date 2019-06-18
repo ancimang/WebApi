@@ -1,0 +1,133 @@
+﻿
+h1 {
+    word-spacing: inherit;
+    text-align: center;
+    color: whitesmoke;
+   
+}
+html {
+    font-family: 'Lucida Sans Unicode';
+}
+.container {
+    font-family: 'Lucida Sans Unicode';
+    word-spacing: inherit;
+    text-align: center;
+    color: black;
+}
+
+body, html {
+    height: 100%;
+    
+}
+#levoStart{
+    padding-right:20px;
+}
+#quote {
+    padding-top: 80px;
+    text-align: left;
+    text-shadow: initial;
+    color: black;
+    font-style: italic;
+}
+#quote > p {
+    color: black;
+    font-style: normal;
+    text-align: center;
+}
+.bg {
+    background-image: url("hand.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.donja {
+    position: fixed;
+    bottom: 0;
+    background: rgb(0, 0, 0); 
+    background: rgba(0, 0, 0, 0.5); 
+    color: #f1f1f1;
+    width: 100%;
+}
+
+    .donja > .column > .content > img {
+        width: 250px;
+        height: 200px;
+    }
+
+    .donja, .donja > .column {
+        padding: 10px;
+    }
+
+/* Create four equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 33%;
+}
+
+/* Content */
+.content {
+    padding: 10px;
+}
+#zaglavlje >.collapse navbar-collapse > ul > li {
+    color: whitesmoke;
+    font-size: 20px;
+}
+/*#sidebar{
+    margin-left:50px;
+    margin-top:50px;
+    font-size: 20px;
+   
+    
+}*/
+#sidebar > ul > li {
+    padding: 30px;
+    font-size: 20px;
+}
+#main {
+   
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.5);
+}
+
+#sidebarEdit {
+    margin-left: 30px;
+    margin-top: 50px;
+    font-size: 20px;
+}
+#sidebarEdit > ul > li {
+padding-left: 30px;
+padding-top: 30px;
+padding-bottom: 30px;
+font-size: 20px;
+}
+#popuna{
+    width:100%;
+}
+#mainEdit {
+    margin-right: 50px;
+    margin-top: 50px;
+    
+}
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align: center;
+}
+.overlay-content {
+    position: center;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;   
+    color: white;
+}

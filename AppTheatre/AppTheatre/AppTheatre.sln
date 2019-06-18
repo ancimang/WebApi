@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppTheatre", "AppTheatre\AppTheatre.csproj", "{2DCD589B-1B3D-47CC-A65D-69C1A851D8A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppTheatre.Tests", "AppTheatre.Tests\AppTheatre.Tests.csproj", "{2C1CA35E-6075-477D-AC28-3BA0B6AC8565}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2DCD589B-1B3D-47CC-A65D-69C1A851D8A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DCD589B-1B3D-47CC-A65D-69C1A851D8A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DCD589B-1B3D-47CC-A65D-69C1A851D8A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DCD589B-1B3D-47CC-A65D-69C1A851D8A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C1CA35E-6075-477D-AC28-3BA0B6AC8565}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C1CA35E-6075-477D-AC28-3BA0B6AC8565}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C1CA35E-6075-477D-AC28-3BA0B6AC8565}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C1CA35E-6075-477D-AC28-3BA0B6AC8565}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3B316BBB-67D7-408F-B0BE-A22A7A3806A7}
+	EndGlobalSection
+EndGlobal

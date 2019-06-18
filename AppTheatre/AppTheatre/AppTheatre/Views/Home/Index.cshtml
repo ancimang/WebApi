@@ -1,0 +1,393 @@
+﻿@section Scripts {
+    @Scripts.Render("~/Scripts/Skripta.js")
+    @Styles.Render("~/Content/MojCss.css")
+}
+@* ++++++++++++++++++++++++++++++++++++PRIJAVA +++++++++++++++++++++++++++++++++*@
+<nav class="navbar navbar-expand-md navbar-default" id="zaglavlje" style="display:none">
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" id="nav1">Pretraga</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" id="nav2">Editovanje</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" id="nav3">Dodavanje</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" id="nav4">Pozorista</a>
+            </li>
+        </ul>
+        <p id="infoDiv"></p>&nbsp
+        <div style="display:none" id="odjava" float="right">
+            <button class="btn btn-md btn-outline-danger" id="odjavise">Odjava</button>
+        </div>
+    </div>
+</nav>
+<div id="popuna" style="width: 95%"></div>
+<div id="start">
+    <div class="row col-sm-12" id="gornja">
+        <div class="col-sm-9" id="pozdrav">
+            <br />
+            <h1 align="right"><strong>Ljubitelji pozorišta, Dobrodošli</strong></h1><br />
+            <div id="quote">
+                <h4>&nbsp&nbsp&nbsp&nbsp"Na pozornici se prvo digne zavesa pa se tada odigrava drama.<br /> U životu to drugačije biva: najpre se odigra drama pa se onda podigne zavesa."</h4>
+                <p>-Branislav Nušić-</p>
+            </div>
+        </div>
+        <div class="col-sm-3" id="info">
+            <div id="levoStart" align="right">
+                <div style="display:block" id="log">
+                    <button class="btn btn-lg btn-outline-primary" id="btnLogin">Prijava</button>
+                </div><br />
+                <div style="display:block" id="reg">
+                    <button class="btn btn-lg btn-outline-primary" id="btnRegister">Registracija</button>
+                </div><br />
+            </div>
+            <div style="display:none" id="prijava">
+                <form method="post" action="post/">
+                    <div class="form-group">
+                        <label>Korisnicko ime:</label>
+                        <input class="form-control" type="text" placeholder="Unesite svoju e-mail adresu" id="priEmail" />
+                    </div>
+                    <div class="form-group">
+                        <label>Lozinka:</label>
+                        <input class="form-control" type="password" placeholder="Unesite svoju lozinku" id="priLoz" />
+                    </div>
+                    <div hidden>
+                        <button type="submit" class="btn btn-md" id="skrivenaPrijava">Sakriveni submit</button>
+                    </div>
+                </form>
+                <div>
+                    <button class="btn btn-lg btn-outline-light" id="prijavaDugme">Prijava</button>
+                    <button class="btn btn-lg btn-outline-light" id="odustajanjePrijava">Odustani</button>
+                </div>
+            </div>
+            @************************************************************************************************************/*@
+            <div style="display:none" id="registracija">
+                <form method="post" action="post/">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input class="form-control" type="text" placeholder="Unesite svoju e-mail adresu" id="regEmail" autofocus />
+                    </div>
+                    <div class="form-group">
+                        <label>Lozinka</label>
+                        <input class="form-control" type="password" placeholder="Unesite lozinku" id="regLoz" />
+                    </div>
+                    <div class="form-group">
+                        <label>Potvrdi Lozinku</label>
+                        <input class="form-control" type="password" placeholder="Potvrdite unetu lozinku" id="regLoz2" />
+                    </div>
+                    <div hidden>
+                        <button type="submit" class="btn btn-md" id="skrivenaRegistracija">Sakriveni submit</button>
+                    </div>
+                </form>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-outline-light" id="registrovanjeDugme">Registruj se</button>
+                    <button class="btn btn-lg btn-outline-light" id="odustajanjeRegistracija">Odustani</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="donja">
+        <div class="column">
+            <div a href="#" class="content" id="noviSad">
+                <h3 align="center">Novi Sad</h3>
+                <img src="~/Content/novisad.jpg" alt="Novi Sad" style="width:90%">
+            </div>
+        </div>
+        <div class="column">
+            <div a href="#" class="content" id="beograd">
+                <h3 align="center">Beograd</h3>
+                <img src="~/Content/beograd1.jpg" alt="Beograd" style="width:90%">
+            </div>
+        </div>
+        <div class="column">
+            <div a href="#" class="content" id="sombor">
+                <h3 align="center">Sombor</h3>
+                <img src="~/Content/sombor.jpg" alt="Sombor" style="width:90%">
+            </div>
+        </div>
+    </div>
+</div>
+@*/////////////////////////////////////////////////////////////////////////////////////////////////////*@
+<div id="table" style="display:none">
+    <table class="table-bordered table-hover table-active">
+        <thead>
+            <tr>
+                <th class="text-center">Naziv</th>
+                <th class="text-center">Ime i prezime upravnika</th>
+                <th class="text-center">Godina osnivanja</th>
+                <th class="text-center">Grad</th>
+                <th class="text-center">Adresa</th>
+                <th class="text-center">Telefon</th>
+                <th class="text-center">Mail</th>
+                <th class="text-center" id="kolDelete"><span class="glyphicon glyphicon-trash btn-md"></span>&nbsp  Delete</th>
+                <th class="text-center" id="kolEdit"><span class="glyphicon glyphicon-edit btn-md"></span>&nbsp  Edit</th>
+            </tr>
+        </thead>
+        <tbody class="text-center" id="tablebody"></tbody>
+    </table>
+</div>
+@*/////////////////////////////////////////////////////////////////////////////////////////////////////*@
+<div id="tabelaGlumci" style="display:none">
+    <table class="table-bordered table-hover table-active">
+        <thead>
+            <tr>
+                <th class="text-center">Ime</th>
+                <th class="text-center">Prezime</th>
+                <th class="text-center">GodinaRodjenja</th>
+                <th class="text-center" id="kolDelete"><span class="glyphicon glyphicon-trash btn-md"></span>&nbsp  Delete</th>
+                <th class="text-center" id="kolEdit"><span class="glyphicon glyphicon-edit btn-md"></span>&nbsp  Edit</th>
+            </tr>
+        </thead>
+        <tbody class="text-center" id="bodyGlumci"></tbody>
+    </table>
+</div>
+@*//////////////////////////////////////////////////////////////////////////////////////////////////*@
+<div id="tabelaPredstava" style="display:none">
+    <table class="table-bordered table-hover table-active">
+        <thead>
+            <tr>
+                <th class="text-center">Naziv</th>
+                <th class="text-center">Ime rezisera</th>
+                <th class="text-center">Opis</th>
+                <th class="text-center">Datum odrzavanja</th>
+                <th class="text-center">Vreme odrzavanja</th>
+                <th class="text-center">Cena karte</th>
+                <th class="text-center">Premijera</th>
+                <th class="text-center">Zanr</th>
+                <th class="text-center">Pozoriste</th>
+                <th class="text-center" id="kolDelete"><span class="glyphicon glyphicon-trash btn-md"></span>&nbsp  Delete</th>
+                <th class="text-center" id="kolEdit"><span class="glyphicon glyphicon-edit btn-md"></span>&nbsp  Edit</th>
+            </tr>
+        </thead>
+        <tbody class="text-center" id="bodyPredstave"></tbody>
+    </table>
+</div>
+@*/////////////////////////////////////////////////////////////////////////////////////////////////*@
+<div id="tabelaVrste" style="display:none">
+    <table class="table-bordered table-hover table-active">
+        <thead>
+            <tr>
+                <th class="text-center">Naziv</th>
+                <th class="text-center">Opis</th>
+                <th class="text-center" id="kolDelete"><span class="glyphicon glyphicon-trash btn-md"></span>&nbsp  Delete</th>
+                <th class="text-center" id="kolEdit"><span class="glyphicon glyphicon-edit btn-md"></span>&nbsp  Edit</th>
+            </tr>
+        </thead>
+        <tbody class="text-center" id="bodyVrste"></tbody>
+    </table>
+</div>
+@*////////////////////////////////////////////////////////////////////////////////////////////////////*@
+<div class="row">
+    <div class="col-sm-3 col-md-6 col-lg-4" id="newAdd" style="display:none">
+        <div id="sidebar">
+            <ul>
+                <li><a href="#" id="poz"><i class="fa fa-fw fa-home"></i> Pozoriste</a></li>
+                <li><a href="#" id="pred"><i class="fa fa-fw fa-wrench"></i> Predstava</a></li>
+                <li><a href="#" id="glumac"><i class="fa fa-fw fa-user"></i> Glumac</a></li>
+                <li><a href="#" id="vrste"><i class="fa fa-fw fa-envelope"></i> VrstaPredstave</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-sm-9 col-md-6 col-lg-8">
+        <div id="main">
+
+        </div>
+    </div>
+</div>
+@*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////*@
+<div class="row" id="editovanje" style="display:none;width:auto">
+    <div class="column" style="width:15%">
+        <div id="sidebarEdit">
+            <ul>
+                <li><a href="#" id="pozEdit"><i class="fa fa-fw fa-home"></i> Pozoriste</a></li>
+                <li><a href="#" id="predEdit"><i class="fa fa-fw fa-wrench"></i> Predstava</a></li>
+                <li><a href="#" id="glumacEdit"><i class="fa fa-fw fa-user"></i> Glumac</a></li>
+                <li> <a href="#" id="vrsteEdit"><i class="fa fa-fw fa-envelope"></i> VrstaPredstave</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="column" style="width :85%">
+        <div id="mainEdit">
+
+        </div>
+    </div>
+</div>
+@*/////////////////////////////////////////////////////////////////////////////////////////////*@
+<div id="pozAdd" style="display:none" class="overlay">
+    <div>
+        <form method="post" action="post/" id="createPoz" class="overlay-content">
+            <div class="form-group">
+                <label>Naziv:</label>
+                <input  type="text" id="pozPolje1" />
+            </div>   
+            <div class="form-group">
+                <label>Ime upravnika pozorista: </label>
+                <input type="text" id="pozPolje2" />
+            </div>  
+            <div class="form-group">
+                <label>Godina osnivanja: </label>
+                <input type="number" id="pozPolje3" />
+            </div>  
+            <div class="form-group">
+                <label>Grad:</label>
+                <input type="text" id="pozPolje4" />
+            </div>  
+            <div class="form-group">
+                <label>Adresa: </label>
+                <input type="text" id="pozPolje5" />
+            </div>   
+            <div class="form-group">
+                <label>Telefon:</label>
+                <input type="text" id="pozPolje6" />
+            </div>   
+            <div class="form-group">
+                <label>Mail: </label>
+                <input type="text" id="pozPolje7" />
+            </div>  
+            <div hidden>
+                <button type="submit" id="skriveniSubmitPoz">Sakriveni submit</button>
+            </div>
+        </form>
+    </div>
+    <div>
+        <p>
+            @*&nbsp&nbsp&nbsp&nbsp*@
+            <button id="kreirajPoz" type="button" class="btn btn-outline-success">
+                Sacuvati pozoriste
+            </button> &nbsp&nbsp&nbsp&nbsp
+            <button id="refreshPoz" type="submit" class="btn btn-outline-danger">
+                Odustajanje
+            </button>
+        </p>
+    </div>
+</div>
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+<div id="predAdd" style="display:none" class="overlay">
+    <form method="post" action="post/" id="createEditPre" class="overlay-content">
+        <div class="form-group">
+            <label style="text-align:left"> Naziv: </label>
+            <input type="text" id="prePolje1">
+            <!--<label style="color:red" id="lbl1">This field is required!</label>-->
+        </div><br />
+        <div class="form-row">
+            <label style="text-align:left">Ime rezisera predstave: </label>
+            <input type="text" id="prePolje2" />
+            @*<label style="color:red" id="lbl2">This field is required!</label>-->*@
+        </div><br />
+        <div class="form-group">
+            <label style="text-align:left">Opis: </label>
+            <textarea type="text" id="prePolje3"></textarea>
+            @*<label style="color:red" id="lbl2">This field is required!</label>-->*@
+        </div><br />
+        <div class="form-group">
+            <label style="text-align:left">Datum odrzavanja: </label>
+            <input type="date" placeholder="Datum odrzavanja" id="prePolje4" />
+            @* <label style="color:red" id="lbl3">This field is required!</label>-->*@
+        </div><br />
+        <div class="form-g">
+            <label style="text-align:left">Vreme odrzavanja: </label>
+            <input type="time" id="prePolje5" />
+            @* <label style="color:red" id="lbl3">This field is required!</label>-->*@
+        </div><br />
+        <div class="form-group">
+            <label style="text-align:left">Cena karte: </label>
+            <input  id="prePolje6" />
+            @* <label style="color:red" id="lbl4">This field is required!</label>-->*@
+        </div><br />
+        <div class="form-group">
+            <label style="text-align:left">Premijera: </label>
+            <input id="prePolje7" />
+            @* <label style="color:red" id="lbl4">This field is required!</label>-->*@
+        </div><br />
+        <div class="form-group">
+            <label style="text-align:left">Vrsta predstave:</label>
+            <select id="vrsteId" ></select>
+        </div><br />
+        <div class="form-group">
+            <label style="text-align:left">Pozoriste:</label>
+            <select id="pozoristadId" ></select>
+        </div><br />
+        <div hidden>
+            <button type="submit" id="skriveniSubmitPre">Sakriveni submit</button>
+        </div>
+    </form>
+    <div>
+        <p>
+            @*&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp*@
+            <button id="kreirajPre" type="button" class="btn btn-outline-success">
+                Sacuvati predstavu
+            </button> &nbsp&nbsp&nbsp&nbsp
+            <button id="refreshPre" type="submit" class="btn btn-outline-danger">
+                Odustajanje
+            </button>
+        </p>
+    </div>   
+</div>
+@*/////////////////////////////////////////////////////////////////////////////////////////////////*@
+<div id="addGlu" style="display:none" class="overlay">
+    <form method="post" action="post/" id="createGlumac" class="overlay-content">
+        <div class="form-group">
+            <label style="text-align:left">Ime glumca:</label>
+            <input type="text" id="imeGlu" />
+        </div>   <br />
+        <div class="form-group">
+            <label style="text-align:left">Prezime glumca: </label>
+            <input  type="text" id="preGlu" />
+
+        </div>   <br />
+        <div class="form-group">
+            <label style="text-align:left">Godina rodjenja: </label>
+            <input  type="number" id="godiGlu" />
+
+        </div>   <br />
+        <div hidden>
+            <button type="submit" id="skriveniSubmitGlumac">Sakriveni submit</button>
+        </div>
+    </form>
+    <div>
+        <p>
+            @*&nbsp&nbsp&nbsp&nbs*@
+            <button id="kreirajGlu" type="button" class="btn btn-outline-success">
+                Sacuvati glumca
+            </button> &nbsp&nbsp&nbsp&nbsp
+            <button id="refreshGlumac" type="submit" class="btn btn-outline-danger">
+                Odustajanje
+            </button>
+        </p>
+    </div>
+</div>
+@*/////////////////////////////////////////////////////////////////////////////////////////////////*@
+<div id="addVrste" style="display:none" class="overlay">
+    <form method="post" action="post/" id="createVrste" class="overlay-content">
+        <div class="form-group">
+            <label style="text-align:left">Naziv zanra:</label>
+            <input type="text" id="nazivVrste" />
+        </div>   <br />
+        <div class="form-group">
+            <label style="text-align:left">Opis zanra: </label>
+            <input  type="text" id="opisVrste" />
+        </div>   <br />        
+        <div hidden>
+            <button type="submit" id="skriveniSubmitVrste">Sakriveni submit</button>
+        </div>
+    </form>
+    <div>
+        <p>
+            @*&nbsp&nbsp&nbsp&nbs*@
+            <button id="kreirajVrste" type="button" class="btn btn-outline-success">
+                Sacuvati glumca
+            </button> &nbsp&nbsp&nbsp&nbsp
+            <button id="refreshVrste" type="submit" class="btn btn-outline-danger">
+                Odustajanje
+            </button>
+        </p>
+    </div>
+</div>
